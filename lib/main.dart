@@ -7,7 +7,7 @@ import 'dart:developer' as developer;
 import 'app/router.dart';
 import 'app/theme/app_theme.dart';
 import 'core/constants/supabase_constants.dart';
-import 'core/services/onboarding_service.dart';
+import 'core/services/shared_prefs_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,9 @@ Future<void> main() async {
       developer.log('Failed to initialize Supabase: $e');
     }
   } else {
-    developer.log('Supabase configuration missing. Check supabase_constants.dart');
+    developer.log(
+      'Supabase configuration missing. Check supabase_constants.dart',
+    );
   }
 
   runApp(

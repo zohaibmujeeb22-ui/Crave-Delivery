@@ -1,3 +1,11 @@
+import 'package:crave_delivery1/core/constants/supabase_constants.dart';
+import 'package:crave_delivery1/core/services/onboarding_service.dart';
+import 'package:crave_delivery1/main.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
