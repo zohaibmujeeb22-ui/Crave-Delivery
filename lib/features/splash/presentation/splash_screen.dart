@@ -5,13 +5,24 @@ import 'package:go_router/go_router.dart';
 import '../controllers/startup_controller.dart';
 import '../controllers/startup_state.dart';
 
-class SplashScreen extends ConsumerWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    // Listen for state transitions and route accordingly
-    ref.listen<StartupState>(startupControllerProvider, (previous, next) {
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends ConsumerState<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(const Duration(seconds: 2), () {
+      if (!mounted) return;
+      ref.read(startupControllerProvider.notifier).resolveStartup();
+    });
+
+    ref.listenManual<StartupState>(startupControllerProvider, (previous, next) {
       switch (next) {
         case NavigateToOnboarding():
           context.go('/onboarding');
@@ -33,7 +44,10 @@ class SplashScreen extends ConsumerWidget {
           break;
       }
     });
+  }
 
+  @override
+  Widget build(BuildContext context) {
     final startupState = ref.watch(startupControllerProvider);
 
     return Scaffold(

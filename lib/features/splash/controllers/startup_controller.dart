@@ -22,9 +22,7 @@ class StartupController extends StateNotifier<StartupState> {
     required SupabaseClient supabase,
   }) : _onboardingService = onboardingService,
        _supabase = supabase,
-       super(const StartupInitial()) {
-    resolveStartup();
-  }
+       super(const StartupInitial());
 
   Future<void> resolveStartup() async {
     state = const StartupInitial();
