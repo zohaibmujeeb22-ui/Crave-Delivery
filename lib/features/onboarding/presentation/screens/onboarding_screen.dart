@@ -27,11 +27,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
   Future<void> _completeAndNavigate() async {
     HapticFeedback.mediumImpact();
-    // 1. Mark onboarding as done locally
     await ref.read(onboardingServiceProvider).completeOnboarding();
-    // 2. Hand over to Auth routing
     if (mounted) {
-      context.go('/auth');
+      context.replace('/auth');
     }
   }
 

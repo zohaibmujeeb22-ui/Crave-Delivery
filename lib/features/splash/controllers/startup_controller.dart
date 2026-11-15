@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter_riverpod/legacy.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../core/services/shared_prefs_service.dart';
-import '../../auth/domain/user_role.dart';
+import '../../auth/domain/models/user_role.dart';
 import 'startup_state.dart';
 
 final startupControllerProvider =

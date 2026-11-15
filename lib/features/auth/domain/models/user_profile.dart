@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:crave_delivery1/features/auth/domain/user_role.dart';
+import 'package:crave_delivery1/features/auth/domain/models/user_role.dart';
 
 /// The account status matching PostgreSQL check constraint.
 enum AccountStatus {
